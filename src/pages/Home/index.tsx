@@ -1,7 +1,7 @@
 import React from "react";
-import { Button, Message } from "@arco-design/web-react";
+import { Button } from "@arco-design/web-react";
 import classes from "./index.module.scss";
-import { connect, useDispatch, useSelector} from "react-redux";
+import { connect } from "react-redux";
 import { increment } from "@/store/reducers/counter";
 
 interface IState {
@@ -12,14 +12,13 @@ class ClassTest extends React.Component<any, IState> {
     constructor(props: any) {
         super(props);
         this.onClickTest = this.onClickTest.bind(this);
-        this.state = {attr: 'val'};
+        this.state = {attr: 'value'};
     }
     componentDidMount(): void {   // TODO 计时器
         console.log('componentDidMount');
     }
     onClickTest() {
         this.props.setCounterInfo();
-         Message.info('This is an info message!');
     }
     onClickTestLam = () => {
         this.setState({ attr: 'value' });
