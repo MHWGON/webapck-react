@@ -4,7 +4,11 @@ import LazyWrapper from "@/components/lazy-wrapper/index";
 const ROUTER_CONFIG: RouteObject[] = [
     {
         path: "/",
-        element: <LazyWrapper path="/Home/index" /> ,
+        element: <LazyWrapper path="/Home/index" />,
+    },
+    {
+        path: "/counter",
+        element: <LazyWrapper path="/Counter/index" />,
     },
     {
         path: "*",

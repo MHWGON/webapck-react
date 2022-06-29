@@ -1,9 +1,11 @@
 import React from "react";
 import { Button, Message } from "@arco-design/web-react";
-import classes from "../../assets/style/index.module.scss";
+import classes from "./index.module.scss";
+import { connect, useDispatch, useSelector} from "react-redux";
+import { increment } from "@/store/reducers/counter";
 
 interface IState {
-    attr: string
+    attr: string;
 }
 
 class ClassTest extends React.Component<any, IState> {
@@ -12,14 +14,15 @@ class ClassTest extends React.Component<any, IState> {
         this.onClickTest = this.onClickTest.bind(this);
         this.state = {attr: 'val'};
     }
-    componentDidMount(): void {   // 计时器
+    componentDidMount(): void {   // TODO 计时器
         console.log('componentDidMount');
     }
     onClickTest() {
+        this.props.setCounterInfo();
          Message.info('This is an info message!');
     }
     onClickTestLam = () => {
-        this.setState({ attr: 'val1' });
+        this.setState({ attr: 'value' });
         console.log('onClickTestLam');
     }
     render(): React.ReactNode {
@@ -31,9 +34,26 @@ class ClassTest extends React.Component<any, IState> {
                 &nbsp;&nbsp;
                 <Button type={"outline"} onClick={this.onClickTestLam}>onClickTestLam</Button>
                 <div>This is state attr {this.state.attr}</div>
+                <br/>
+                <div>counter____: {this.props.counter.value}</div>
             </div>
         )
     }
 }
 
-export default ClassTest;
+const mapStateToProps = (store: Record<string, any>) => {
+
+    return {
+        counter: store.counter
+    }
+}
+const mapDispatchToProps = (dispatch: any) => {
+
+    return {
+        setCounterInfo: () =>{
+            dispatch(increment());
+        }
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(ClassTest);
