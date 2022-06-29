@@ -1,22 +1,22 @@
 module.exports = {
-  "plugins": [
+  plugins: [
     [
       "babel-plugin-import",
       {
-        "libraryName": "@arco-design/web-react",
-        "libraryDirectory": "es",
-        "camel2DashComponentName": false,
-        "style": true
+        libraryName: "@arco-design/web-react",
+        libraryDirectory: "es",
+        camel2DashComponentName: false,
+        style: true
       }
     ],
     [
       "babel-plugin-import",
       {
-        "libraryName": "@arco-design/web-react/icon",
-        "libraryDirectory": "react-icon",
-        "camel2DashComponentName": false
+        libraryName: "@arco-design/web-react/icon",
+        libraryDirectory: "react-icon",
+        camel2DashComponentName: false
       },
       "babel-plugin-import-other"
     ]
   ]
-}
+};

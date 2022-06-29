@@ -9,13 +9,13 @@ interface LazyWrapperProps {
  * TODO 懒加载组件包装器
  */
 const LazyWrapper: FC<LazyWrapperProps> = ({ path }) => {
-    const LazyComponent = lazy(() => import(`/src/pages${path}`));
+  const LazyComponent = lazy(() => import(`/src/pages${path}`));
 
-    return (
-        <Suspense fallback={<div>loading...</div>}>
-            <LazyComponent />
-        </Suspense>
-    );
+  return (
+      <Suspense fallback={<div>loading...</div>}>
+          <LazyComponent />
+      </Suspense>
+  );
 };
 
 export default LazyWrapper;

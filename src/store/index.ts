@@ -4,7 +4,7 @@ import rootReducers from "./reducers"; // 引入 reducer 的集合
 
 // 实例化 store，全局唯一
 const store = configureStore({
-    reducer: rootReducers,
+  reducer: rootReducers
 });
 
 // 导出 Store 中的状态（state）类型

@@ -5,11 +5,11 @@ import classes from "./index.module.scss";
 import { Button } from "@arco-design/web-react";
 
 const CounterPage = () => {
-    const count = useSelector(counterSelector) // 读取 count 值
-    const dispatch = useDispatch() // 获得 dispatch，结合 action 就可更新 state
+  const count = useSelector(counterSelector); // 读取 count 值
+  const dispatch = useDispatch(); // 获得 dispatch，结合 action 就可更新 state
 
-    return (
-        <div className={classes['container']}>
+  return (
+        <div className={classes.container}>
             {/* 同步 - */}
             <Button type={"primary"} onClick={() => dispatch(decrement())}>
                 -
@@ -23,7 +23,7 @@ const CounterPage = () => {
                 +
             </Button>
         </div>
-    );
+  );
 };
 
 export default CounterPage;
